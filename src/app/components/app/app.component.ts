@@ -11,6 +11,7 @@ export class AppComponent {
   users: any[];
   posts: any[];
   comments: any[];
+
 constructor(private http: HttpClient){
   this.http.get<any[]>('http://jsonplaceholder.typicode.com/users')
     .subscribe(response => this.users = response);
