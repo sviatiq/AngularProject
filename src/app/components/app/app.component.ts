@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
 import {Post} from '../../models/Post';
 import {User} from '../../models/User';
 import {Comments} from '../../models/Comments';
+import {PostService} from '../../services/post/post.service';
 
 @Component({
   selector: 'app-root',
@@ -15,13 +15,11 @@ export class AppComponent {
   posts: Post[];
   comments: Comments[];
 
-constructor(private http: HttpClient){
-  this.http.get<User[]>('http://jsonplaceholder.typicode.com/users')
-    .subscribe(response => this.users = response);
-  this.http.get<Post[]>('http://jsonplaceholder.typicode.com/posts')
-    .subscribe(response => this.posts = response);
-  this.http.get<Comments[]>('http://jsonplaceholder.typicode.com/comments')
-    .subscribe(response => this.comments = response);
-}
+  constructor(private postService: PostService){
+    this.postService.getUsers().subscribe(response => this.users = response);
+    this.postService.getPosts().subscribe(response => this.posts = response);
+    this.postService.getComments().subscribe(response => this.comments = response);
+  }
+
 
 }
