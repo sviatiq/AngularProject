@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Post} from '../../models/Post';
 import {User} from '../../models/User';
 import {Comments} from '../../models/Comments';
 import {PostService} from '../../services/post/post.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,14 +12,13 @@ import {PostService} from '../../services/post/post.service';
 })
 export class AppComponent {
 
+  @Input()
   users: User[];
-  posts: Post[];
-  comments: Comments[];
+  constructor(private router: Router) {
+  }
 
-  constructor(private postService: PostService){
-    this.postService.getUsers().subscribe(response => this.users = response);
-    this.postService.getPosts().subscribe(response => this.posts = response);
-    this.postService.getComments().subscribe(response => this.comments = response);
+  showAllUsers(): void{
+    this.router.navigate(['users']);
   }
 
 

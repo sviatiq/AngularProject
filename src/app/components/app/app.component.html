@@ -1,3 +1,16 @@
-<app-user *ngFor="let u of users" [users]="u"></app-user>
+<!--<ul>-->
+<!--  <li><a routerLink="showAllUsers">Users</a></li>-->
+<!--  <li><a routerLink="showAllPosts">Posts</a></li>-->
+<!--  <li><a routerLink="showAllComments">Comments</a></li>-->
+<!--</ul>-->
+
+<!--<router-outlet></router-outlet>-->
+
+<!--<app-user *ngFor="let u of users" [users]="u"></app-user>-->
 <!--<app-posts *ngFor="let p of posts" [posts]="p"></app-posts>-->
 <!--<app-comments *ngFor="let c of comments" [comments]="c"></app-comments>>-->
+
+<ul>
+  <li (click)="showAllUsers()">Hello!</li>
+</ul>
+<router-outlet></router-outlet>

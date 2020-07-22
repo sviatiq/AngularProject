@@ -3,6 +3,8 @@
   {{users.name}}
   {{users.username}}
   {{users.email}}
-</div>
 
-<button (click)="showAllPosts(users.id)">show posts</button>
+
+<!--<button (click)="showAllPosts(users.id)">show posts</button>-->
+<button ><a routerLink="/posts/{{users.id}}}">Show posts of user</a></button>
+</div>

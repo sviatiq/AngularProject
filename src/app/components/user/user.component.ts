@@ -23,7 +23,7 @@ export class UserComponent implements OnInit {
     console.log(userId);
     this.postService.getSinglePostOfUser(userId).subscribe(posts => {
     console.log(posts);
-    for(const post of posts) {
+    for (const post of posts) {
       this.commentService.getCommentOfSinglePostOfCurrentUser(post.id).subscribe(comment => console.log(comment));
     }
   })

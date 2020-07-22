@@ -18,14 +18,6 @@ export class PostService {
     return this.http.get<Post[]>('http://jsonplaceholder.typicode.com/posts');
   }
 
-  getComments(): Observable<Comments[]> {
-    return this.http.get<Comments[]>('http://jsonplaceholder.typicode.com/comments');
-  }
-
-  getUsers(): Observable<User[]> {
-    return this.http.get<User[]>('http://jsonplaceholder.typicode.com/users');
-  }
-
   getCommentOfSinglePost(postId): Observable<Comments[]>{
     return this.http.get<Comments[]>(`http://jsonplaceholder.typicode.com/comments?postId=${postId}`);
   }
